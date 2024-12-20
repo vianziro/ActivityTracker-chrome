@@ -77,10 +77,23 @@ function loadTasks() {
       const li = document.createElement('li');
       li.innerHTML = `
         ${task.name} (${task.priority})
-        <button class="text-blue-500 ml-2" onclick="editTask(${index})">Edit</button>
-        <button class="text-red-500 ml-2" onclick="deleteTask(${index})">Delete</button>
+        <button class="text-blue-500 ml-2 edit-task" data-index="${index}">Edit</button>
+        <button class="text-red-500 ml-2 delete-task" data-index="${index}">Delete</button>
       `;
       tasksList.appendChild(li);
+    });
+
+    // Add event listeners for dynamically created buttons
+    document.querySelectorAll('.edit-task').forEach(button => {
+      button.addEventListener('click', function() {
+        editTask(this.dataset.index);
+      });
+    });
+
+    document.querySelectorAll('.delete-task').forEach(button => {
+      button.addEventListener('click', function() {
+        deleteTask(this.dataset.index);
+      });
     });
   });
 }
@@ -132,9 +145,16 @@ function loadBlockedSites() {
       const li = document.createElement('li');
       li.innerHTML = `
         ${site}
-        <button class="text-red-500 ml-2" onclick="deleteBlockedSite(${index})">Delete</button>
+        <button class="text-red-500 ml-2 delete-blocked-site" data-index="${index}">Delete</button>
       `;
       blockedSitesList.appendChild(li);
+    });
+
+    // Add event listeners for dynamically created buttons
+    document.querySelectorAll('.delete-blocked-site').forEach(button => {
+      button.addEventListener('click', function() {
+        deleteBlockedSite(this.dataset.index);
+      });
     });
   });
 }
