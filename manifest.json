@@ -20,7 +20,6 @@
   "background": {
     "service_worker": "background/background.js"
   },
-  "options_page": "settings/settings.html",
   "declarative_net_request": {
     "rule_resources": [{
       "id": "ruleset_1",

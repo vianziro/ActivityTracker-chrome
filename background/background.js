@@ -1,6 +1,8 @@
-chrome.storage.sync.get(['blockedSites'], (result) => {
-  const blockedSites = result.blockedSites || [];
-  updateBlockedSites(blockedSites);
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.storage.sync.get(['blockedSites'], (result) => {
+    const blockedSites = result.blockedSites || [];
+    updateBlockedSites(blockedSites);
+  });
 });
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
