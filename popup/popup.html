@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Productivity Analyzer</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+  <div class="container mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Productivity Insights</h1>
+    
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="font-semibold">Fokus Hari Ini</h3>
+        <div class="text-green-500 text-xl font-bold">85%</div>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="font-semibold">Waktu Produktif</h3>
+        <div class="text-blue-500 text-xl font-bold">5j 30m</div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <canvas id="activityChart"></canvas>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="font-semibold mb-2">Situs Paling Sering Dikunjungi</h3>
+      <div id="sitesList"></div>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="font-semibold mb-2">Task List</h3>
+      <ul id="tasks" class="mb-2"></ul>
+      <input type="text" id="newTask" placeholder="Add new task" class="border rounded p-2 mr-2">
+      <select id="priority" class="border rounded p-2 mr-2">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button id="addTask" class="bg-blue-500 text-white rounded px-4 py-2">Add Task</button>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="font-semibold mb-2">Blocked Sites</h3>
+      <ul id="blockedSitesList" class="mb-2"></ul>
+      <input type="text" id="newBlockedSite" placeholder="Add site to block" class="border rounded p-2 mr-2">
+      <button id="addBlockedSite" class="bg-red-500 text-white rounded px-4 py-2">Add Site</button>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-2">Rekomendasi AI</h3>
+      <div id="recommendations"></div>
+    </div>
+  </div>
+
+  <script src="../js/chart.min.js"></script>
+  <script src="../js/analysis.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
